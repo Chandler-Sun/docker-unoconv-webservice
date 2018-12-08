@@ -5,9 +5,13 @@ RUN wget -O /etc/apt/sources.list http://mirrors.cloud.tencent.com/repo/ubuntu16
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5
 RUN apt-get update
-RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+# RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 # RUN apt install -y ttf-mscorefonts-installer
 RUN apt-get install fonts-arphic-bkai00mp fonts-arphic-bsmi00lp fonts-arphic-gbsn00lp fonts-arphic-gkai00mp fonts-arphic-ukai fonts-arphic-uming fonts-cns11643-kai fonts-cns11643-sung fonts-cwtex-fs fonts-cwtex-heib fonts-cwtex-kai fonts-cwtex-ming fonts-cwtex-yen
+RUN wget -O /usr/share/fonts/simsun.ttc https://github.com/sonatype/maven-guide-zh/raw/master/content-zh/src/main/resources/fonts/simsun.ttc
+RUN wget -O /usr/share/fonts/SimHei.ttf https://github.com/StellarCN/scp_zh/raw/master/fonts/SimHei.ttf
+RUN chmod 644 /usr/share/fonts/simsun.ttc
+RUN chmod 644 /usr/share/fonts/SimHei.ttf
 RUN fc-cache -f -v
 
 # Clone the repo
